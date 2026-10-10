@@ -1,0 +1,43 @@
+# Konfigurasi proyek PhD-Workbench.
+# Diisi agen saat sesi profiling pertama (skill `profil`), atau manual.
+# Dibaca oleh agen (CLAUDE.md/AGENTS.md) dan scripts/wb.py.
+
+proyek:
+  pemilik: ""
+  bahasa_naskah: id            # id | en
+  fase_aktif: 0                # 0–8, lihat CLAUDE.md §3
+  mulai_studi: ""              # YYYY-MM
+  target_lulus: ""             # YYYY-MM
+
+kampus:
+  nama: ""
+  prodi: ""
+  profil: ""                   # nama folder di _templates/profil-kampus/ (mis. udinus), kosong = generik
+  gaya_sitasi: apa             # apa | ieee | harvard | ...
+  format_naskah: latex         # latex | docx | markdown
+  pedoman_resmi: ""            # path di 00-admin/regulasi-kampus/; kosong = BELUM DICEK
+
+riset:
+  disiplin: ""                 # mis. "software engineering", "computer vision"
+  jenis: []                    # modul: eksperimen-komputasi, riset-llm, data-sensitif, kualitatif, survei, design-science, situs-baca
+  topik: ""                    # diisi setelah G1 (rujuk TDR)
+  rq: []                       # diisi setelah G2
+  klaster_literatur: []
+
+pembaca:
+  # Siapa yang akan membaca/menguji naskah. Agen memakai ini untuk menyesuaikan penjelasan.
+  latar_penguji: ""
+  catatan: ""
+
+data:
+  folder_sensitif: [06-subjek-data/sensitif]
+  boleh_ke_model_tertutup: false   # true hanya bila diizinkan pemilik data
+
+agen:
+  dipakai: [claude-code]       # claude-code | codex | gemini | none
+  peran: [supervisor, pekerja]
+
+naskah_sinkron:                # pasangan naskah yang irisannya wajib sama (dipakai mulai Fase 3)
+  - a: 03-proposal/naskah-resmi/main.tex
+    b: 03-proposal/draf/proposal.md
+    irisan: [judul, rq, celah]
