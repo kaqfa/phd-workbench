@@ -1,0 +1,34 @@
+# Data sensitif — tidak pernah di-commit
+06-subjek-data/sensitif/*
+!06-subjek-data/sensitif/.gitkeep
+**/transkrip/sensitif/
+
+# PDF literatur (hak cipta). Hapus baris ini bila repo privat dan Anda ingin menyimpannya.
+04-literatur/pdf/**/*.pdf
+
+# Data mentah besar; simpan di luar Git (atau Git LFS) dan catat lokasinya di protokol
+05-riset/*/data/raw/*
+!05-riset/*/data/raw/.gitkeep
+!05-riset/*/data/raw/README.md
+
+# Kredensial & lingkungan
+.env
+*.key
+secrets/
+
+# Build & cache
+__pycache__/
+*.pyc
+.venv/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+.DS_Store
+.obsidian/workspace*
+.claude/settings.local.json
