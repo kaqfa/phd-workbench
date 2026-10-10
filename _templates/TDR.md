@@ -3,7 +3,7 @@ jenis: tdr
 id: TDR-001
 tanggal: YYYY-MM-DD
 status: berlaku         # berlaku | ditinjau | dibatalkan
-ide: IDE-NN
+ide: IDE-NN            # boleh lebih dari satu bila ide digabung: IDE-01, IDE-03
 tinjau_ulang: YYYY-MM-DD
 ---
 

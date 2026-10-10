@@ -24,13 +24,14 @@ Pengguna P2 yang sudah punya ide: masukkan dulu ide-ide tersebut sebagai kartu, 
 4. **Paper pemicu**:
    - Paper yang kamu sebut dari ingatan **wajib** ditulis `[CARI: penulis?, tahun?, kata kunci]` dengan status verifikasi `belum`. Jangan menulis judul atau DOI yang terlihat pasti bila belum dicek.
    - Bila ada akses web atau API (OpenAlex, Semantic Scholar, Crossref, arXiv), boleh langsung diverifikasi. Tulis DOI/URL dan tanggal cek, lalu ubah status menjadi `ada (metadata)`. Ingat: metadata hanya membuktikan paper itu ada, bukan isinya.
+   - Bila tidak ada akses web, kumpulkan semua `[CARI: ...]` menjadi **daftar pencarian manual** di akhir sesi (lihat skill `lanjut`). G1 mensyaratkan paper pemicu ide terpilih sudah diverifikasi.
 5. Isi "Risiko terbesar" dengan jujur. Ide tanpa risiko berarti belum dipikirkan dengan serius.
 6. Target sesi adalah **10–20 kartu**. Variasi lebih penting daripada kesempurnaan. Ide yang setengah matang tetap ditulis.
 
 ## Penutup
 - Ringkas dalam bentuk tabel: ID, judul, sumber, aset yang dipakai, satu kalimat risiko.
 - Perbarui log hari ini dan jalankan `python3 scripts/wb.py status`.
-- Set `fase_aktif: 1` bila masih 0 (setelah G0 dicentang pengguna).
+- Bila `fase_aktif` masih 0 dan G0 sudah dicentang pengguna, minta konfirmasi untuk mengubahnya menjadi 1.
 - Usulkan langkah berikutnya: skill `skor-ide` bila sudah ≥10 kartu, atau verifikasi `[CARI: ...]` lebih dulu.
 
 ## Batasan

@@ -2,7 +2,7 @@
 
 > Dibangkitkan oleh `python3 scripts/wb.py status` pada 2026-10-10. **Jangan diedit tangan.**
 
-**Fase aktif:** 0 — Profiling diri
+**Fase aktif:** 0 — Profiling diri · **Gate aktif:** G0
 
 ## Gate
 
@@ -19,6 +19,8 @@
 
 ## Ringkasan
 
+- **profil.md**: belum ada
+- **aset-riset.md**: belum ada
 - **Kartu ide** (0): belum ada
 - **Uji tekan** (0): belum ada
 - **TDR** (0): belum ada

@@ -41,11 +41,11 @@ dari pertemuan antara keahlian, aset, minat, dan batasan, bukan dari daftar "top
 
 ### Penutup sesi
 1. Simpan catatan sesi di `01-profil-diri/refleksi/YYYY-MM-DD-sesi-N.md`. Isinya ringkasan, hal mengejutkan, dan pertanyaan terbuka.
-2. Sampaikan **sintesis profil** dalam 5–7 baris: kekuatan khas, aset terkuat, batasan terkeras, dan 2–3 "zona topik" yang tampak cocok. Zona topik masih berupa arah, belum topik.
+2. Sampaikan **sintesis profil** dalam 5–7 baris: kekuatan khas, aset terkuat, batasan terkeras, dan 2–3 "zona topik" yang tampak cocok. Zona topik masih berupa arah, belum topik. Tulis zona topik ke bagian **Zona topik** di `profil.md` (dipakai skill `gali-ide`).
 3. Kritik dengan jujur bila ada yang tidak realistis, misalnya target lulus 3 tahun dengan waktu riset 5 jam per minggu.
-4. Isi `riset.disiplin`, lalu usulkan `riset.jenis` (modul) dan tunggu persetujuan pengguna.
+4. Isi `riset.disiplin`, lalu usulkan `riset.jenis` (modul) dan tunggu persetujuan pengguna. Untuk setiap modul yang disetujui, ikuti petunjuk di `_templates/modul/<nama>/README.md` (folder dan aturan tambahan).
 5. Perbarui log hari ini dan jalankan `python3 scripts/wb.py status`.
-6. Bila tema 1–6 sudah terisi, tawarkan agar pengguna mencentang `_gate/G0.md`. Setelah itu, tawarkan lanjut ke skill `gali-ide`.
+6. Bila tema 1–6 sudah terisi, tawarkan agar pengguna mencentang `_gate/G0.md`. Setelah G0 dicentang, ubah `status: cukup` di `profil.md`, minta konfirmasi untuk `fase_aktif: 1`, lalu tawarkan lanjut ke skill `gali-ide`.
 
 ## Batasan
 - Jangan menyarankan topik spesifik sebelum tema 1–6 terisi. Zona topik boleh.

@@ -43,5 +43,8 @@ status: draf            # draf | cukup (G0)
 ## Tujuan setelah S3
 - 
 
+## Zona topik (sintesis agen, belum topik)
+1. 
+
 ## Catatan agen
 > Bagian yang masih spekulatif atau perlu dikonfirmasi.

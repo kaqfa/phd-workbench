@@ -13,7 +13,7 @@ description: Melanjutkan pekerjaan S3 dan menentukan langkah berikutnya. Pakai k
    - Jalankan `python3 scripts/wb.py status`, lalu baca `STATUS.md`.
    - Baca 1–2 log terakhir di `11-jurnal-riset/log/` (bagian "Berikutnya" dan "Buntu").
    - Baca bimbingan terakhir di `11-jurnal-riset/bimbingan/`, khususnya action item yang statusnya `belum` dan tenggatnya.
-   - Jalankan `python3 scripts/wb.py cek gate G<fase_aktif>` (untuk fase 4 dan 8, lewati langkah ini).
+   - Jalankan `python3 scripts/wb.py cek gate` (otomatis memakai gate fase aktif; fase 4 dan 8 tidak punya gate).
    - Periksa `.agents/kanban/doing/` dan `review/`.
 
 2. **Cek pemicu khusus** (sebutkan bila ada):
@@ -21,7 +21,8 @@ description: Melanjutkan pekerjaan S3 dan menentukan langkah berikutnya. Pakai k
    - `tinjau_ulang` pada TDR yang sudah lewat → usulkan meninjau TDR.
    - Lebih dari 90 hari sejak retrospeksi terakhir → usulkan skill `retro`.
    - Semua butir gate fase aktif sudah `[x]` → usulkan naik fase (minta konfirmasi sebelum mengubah `fase_aktif`).
-   - Rekomendasi `[CARI: ...]` yang menumpuk di kartu ide → usulkan verifikasi.
+   - Butir gate yang **tampaknya sudah terpenuhi** menurut `STATUS.md` (mis. sudah ≥10 kartu ide) → sebutkan dan tawarkan pengguna mencentangnya. Jangan mencentang sendiri.
+   - Penanda `[CARI: ...]` menumpuk → bila ada akses web/API, tawarkan verifikasi. Bila tidak ada, susun **daftar pencarian manual** (kata kunci + saran database: Google Scholar, Semantic Scholar, Garuda/SINTA) untuk dijalankan pengguna, lalu minta hasilnya ditempel atau diekspor ke `.bib`.
 
 3. **Sampaikan ringkasan** dalam ≤10 baris:
    ```

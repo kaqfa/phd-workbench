@@ -19,7 +19,7 @@ alasan_gugur: ""
 ## Paper pemicu (3–5)
 | Paper | Status verifikasi | Relevansi |
 |---|---|---|
-| [CARI: penulis, tahun, kata kunci] | belum | |
+| <judul, atau `[CARI: penulis?, tahun?, kata kunci]` bila dari ingatan> | belum / ada (metadata) / diresume | |
 
 ## Aset yang dipakai
 - (rujuk aset-riset.md; tandai statusnya)

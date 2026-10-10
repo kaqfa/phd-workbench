@@ -18,8 +18,8 @@ Lakukan langkah berikut setiap kali percakapan baru dimulai, atau ketika penggun
 2. Jalankan `python3 scripts/wb.py status`, lalu baca `STATUS.md`.
 3. Baca log terakhir di `11-jurnal-riset/log/` dan catatan bimbingan terakhir di
    `11-jurnal-riset/bimbingan/`, khususnya action item yang belum selesai.
-4. Jalankan `python3 scripts/wb.py cek gate G<fase_aktif>` untuk melihat syarat yang belum terpenuhi
-   (lihat tabel fase di §3).
+4. Jalankan `python3 scripts/wb.py cek gate` untuk melihat syarat gate fase aktif yang belum
+   terpenuhi (pemetaan fase → gate ada di §3).
 5. Sampaikan ringkasan singkat: posisi saat ini, apa yang terakhir dikerjakan, lalu **1–3 usulan
    langkah berikutnya** beserta skill yang relevan. Biarkan pengguna memilih.
 

@@ -5,7 +5,7 @@
 proyek:
   pemilik: ""
   bahasa_naskah: id            # id | en
-  fase_aktif: 0                # 0–8, lihat README §Siklus
+  fase_aktif: 0                # 0–8, lihat CLAUDE.md §3
   mulai_studi: ""              # YYYY-MM
   target_lulus: ""             # YYYY-MM
 

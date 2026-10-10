@@ -2,7 +2,7 @@
 """PhD-Workbench CLI (stdlib saja).
 
   python3 scripts/wb.py status              bangkitkan STATUS.md
-  python3 scripts/wb.py cek gate G1         butir gate yang belum terpenuhi
+  python3 scripts/wb.py cek gate [G1]       butir gate (default: gate fase aktif) yang belum terpenuhi
   python3 scripts/wb.py cek sitasi [berkas] periksa kunci sitasi di naskah
 """
 import argparse
@@ -52,7 +52,15 @@ def gate_items(path: Path):
 
 
 def gate_files(gate: str):
-    return sorted((ROOT / "_gate").glob(f"{gate}*.md"))
+    files = sorted((ROOT / "_gate").glob(f"{gate}*.md"))
+    # G4.md/G5.md adalah template per RQ/paper; abaikan bila salinannya (G4-rq1.md) sudah ada
+    specific = [f for f in files if f.stem != gate]
+    return specific or files
+
+
+def all_gate_files():
+    names = sorted({p.stem[:2] for p in (ROOT / "_gate").glob("G*.md")})
+    return [f for g in names for f in gate_files(g)]
 
 
 def parse_bib() -> dict:
@@ -86,14 +94,15 @@ def cmd_status(_args):
         "",
         f"> Dibangkitkan oleh `python3 scripts/wb.py status` pada {today}. **Jangan diedit tangan.**",
         "",
-        f"**Fase aktif:** {fase} — {FASE[fase] if 0 <= fase < len(FASE) else '?'}",
+        f"**Fase aktif:** {fase} — {FASE[fase] if 0 <= fase < len(FASE) else '?'}"
+        f" · **Gate aktif:** {FASE_GATE.get(fase, 'tidak ada')}",
         "",
         "## Gate",
         "",
         "| Gate | Nama | Terpenuhi |",
         "|---|---|---|",
     ]
-    for path in sorted((ROOT / "_gate").glob("G*.md")):
+    for path in all_gate_files():
         items = gate_items(path)
         done = sum(c for c, _ in items)
         mark = " ✅" if items and done == len(items) else ""
@@ -105,6 +114,9 @@ def cmd_status(_args):
         out.append(f"- **{title}** ({len(paths)}): {summary}")
 
     out += ["", "## Ringkasan", ""]
+    for name in ("profil", "aset-riset"):
+        p = ROOT / "01-profil-diri" / f"{name}.md"
+        out.append(f"- **{name}.md**: " + (frontmatter(p).get("status", "ada") if p.exists() else "belum ada"))
     tally("Kartu ide", docs("02-eksplorasi-topik/kartu-ide"), "status")
     tally("Uji tekan", docs("02-eksplorasi-topik/uji-tekan"), "verdict")
     tally("TDR", docs("02-eksplorasi-topik/keputusan"), "status")
@@ -152,7 +164,9 @@ def cmd_status(_args):
 # ---------------------------------------------------------------- cek gate
 
 def cmd_cek_gate(args):
-    gate = args.gate.upper()
+    gate = (args.gate or FASE_GATE.get(fase_aktif(), "")).upper()
+    if not gate:
+        sys.exit(f"Fase {fase_aktif()} tidak punya gate keluar; lihat CLAUDE.md §3.")
     files = gate_files(gate)
     if not files:
         sys.exit(f"Gate {gate} tidak ditemukan di _gate/")
@@ -163,7 +177,7 @@ def cmd_cek_gate(args):
         belum += len(todo)
         print(f"{path.stem}: {len(items) - len(todo)}/{len(items)} terpenuhi")
         for t in todo:
-            flag = "  ⚠ " if "BELUM DICEK" in t else "  - "
+            flag = "  ⚠ " if "BELUM DICEK →" in t else "  - "
             print(flag + t)
     sys.exit(1 if belum else 0)
 
@@ -228,7 +242,7 @@ def main():
     sub.add_parser("status", help="bangkitkan STATUS.md").set_defaults(fn=cmd_status)
     cek = sub.add_parser("cek", help="pemeriksaan").add_subparsers(dest="jenis", required=True)
     g = cek.add_parser("gate", help="butir gate yang belum terpenuhi")
-    g.add_argument("gate", help="G0..G7")
+    g.add_argument("gate", nargs="?", help="G0..G7; default: gate fase aktif")
     g.set_defaults(fn=cmd_cek_gate)
     s = cek.add_parser("sitasi", help="periksa kunci sitasi di naskah")
     s.add_argument("berkas", nargs="*", help="berkas/folder; default: folder naskah standar")

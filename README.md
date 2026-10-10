@@ -146,7 +146,8 @@ Folder untuk fase yang belum aktif boleh diabaikan dulu.
 
 ```bash
 python3 scripts/wb.py status              # bangkitkan STATUS.md
-python3 scripts/wb.py cek gate G1         # butir gate yang belum terpenuhi
+python3 scripts/wb.py cek gate            # butir gate fase aktif yang belum terpenuhi
+python3 scripts/wb.py cek gate G3         # gate tertentu
 python3 scripts/wb.py cek sitasi          # cek sitasi di folder naskah standar
 python3 scripts/wb.py cek sitasi 03-proposal/draf/proposal.md
 ```

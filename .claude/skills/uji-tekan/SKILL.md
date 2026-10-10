@@ -24,10 +24,11 @@ Pilih bersama pengguna:
 4. Tambahkan 2–4 pertanyaan khusus untuk ide tersebut, misalnya soal akses data, kompetitor terdekat, atau asumsi tersembunyi.
 5. Tulis jawaban dan penilaian ke berkas.
 6. Susun **3 titik terlemah**, diurutkan dari yang paling fatal.
-7. Usulkan verdict (`lanjut`, `revisi`, atau `gugur`) beserta alasannya. **Pengguna yang menetapkan** verdict akhir. Perbarui status kartu ide sesuai verdict (`uji-tekan`, `gugur`, atau `terpilih` setelah TDR).
+7. Usulkan verdict (`lanjut`, `revisi`, atau `gugur`) beserta alasannya. **Pengguna yang menetapkan** verdict akhir. Perbarui status kartu ide: verdict `lanjut` atau `revisi` → `status: uji-tekan`; verdict `gugur` → `status: gugur` beserta alasan. Status `terpilih` baru diberikan setelah TDR ditulis.
+8. Verdict `revisi` sering berarti **menggabungkan** beberapa ide (mis. prediksi + intervensi). Itu wajar; catat ide-ide yang digabung di TDR.
 
 ## Setelah semua ide shortlist diuji (Fase 1)
-Bila 1–2 ide lolos, tawarkan untuk menyusun **TDR** (`02-eksplorasi-topik/keputusan/TDR-NNN-<slug>.md`). Bimbing pengguna menulis bagian Keputusan, Alasan, dan terutama **Kriteria pembatalan** yang konkret. Isi `riset.topik` di `workbench.yaml` dan set `tinjau_ulang` kira-kira 3 bulan ke depan. Tawarkan untuk mencentang G1, lalu lanjut ke skill `scoping`.
+Bila 1–2 ide lolos (verdict `lanjut`, atau `revisi` yang sudah dirumuskan ulang/digabung), tawarkan untuk menyusun **TDR** (`02-eksplorasi-topik/keputusan/TDR-NNN-<slug>.md`). Bimbing pengguna menulis bagian Keputusan, Alasan, dan terutama **Kriteria pembatalan** yang konkret. Ubah status kartu ide yang dipakai menjadi `terpilih`. Isi `riset.topik` di `workbench.yaml` dan set `tinjau_ulang` kira-kira 3 bulan ke depan. Tawarkan untuk mencentang G1, lalu lanjut ke skill `scoping`.
 
 ## Batasan
 - Jangan mengarang paper pesaing untuk menekan pengguna. Bila curiga sudah ada karya serupa, tulis `[CARI: ...]`.
